@@ -1,0 +1,5 @@
+import { DEFAULT_SETTINGS, STORAGE_KEYS } from '../lib/constants.js';
+const agree=document.querySelector('#agree'),start=document.querySelector('#start');
+agree.addEventListener('change',()=>start.disabled=!agree.checked);
+start.addEventListener('click',async()=>{const result=await chrome.storage.local.get(STORAGE_KEYS.settings);const settings={...DEFAULT_SETTINGS,...(result[STORAGE_KEYS.settings]||{}),firstRunComplete:true,consentedAt:Date.now()};await chrome.storage.local.set({[STORAGE_KEYS.settings]:settings});await chrome.runtime.sendMessage({type:'tracking:set',enabled:true});location.href=chrome.runtime.getURL('dashboard/index.html#overview');});
+document.querySelector('#not-now').addEventListener('click',async()=>{const result=await chrome.storage.local.get(STORAGE_KEYS.settings);await chrome.storage.local.set({[STORAGE_KEYS.settings]:{...DEFAULT_SETTINGS,...(result[STORAGE_KEYS.settings]||{}),firstRunComplete:true,trackingEnabled:false}});location.href=chrome.runtime.getURL('dashboard/index.html#settings');});

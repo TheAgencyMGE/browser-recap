@@ -1,0 +1,21 @@
+# Chrome Web Store / private submission material
+READ_ME_FIRST.md
+STORE_LISTING.md
+SUBMISSION_CHECKLIST.md
+TESTING.md
+store-assets/
+
+# Release artifacts and signing material
+*.zip
+*.crx
+*.pem
+
+# Local/editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.log
+*.tmp
+*.temp

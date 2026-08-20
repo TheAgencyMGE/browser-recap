@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Browser Recap</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#overview" aria-label="Browser Recap home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Browser<br>Recap</span>
+      </a>
+      <nav>
+        <a href="#overview" data-route="overview">Overview</a>
+        <a href="#recaps" data-route="recaps">Recaps</a>
+        <a href="#replay" data-route="replay">Day Replay</a>
+        <a href="#archive" data-route="archive">Archive</a>
+        <a href="#settings" data-route="settings">Settings</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div id="tracking-pill" class="tracking-pill">Tracking off</div>
+        <div class="privacy-note">Local only. No account.</div>
+      </div>
+    </aside>
+    <main id="app" class="main"></main>
+  </div>
+  <div id="story-root" class="story-root" hidden></div>
+  <input id="import-file" type="file" accept="application/json,.browserrecap" hidden>
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
